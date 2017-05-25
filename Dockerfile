@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER Brendan Beveridge, brendan@nodeintegration.com.au
+MAINTAINER Brendan Beveridge <brendan@nodeintegration.com.au>
 
 ENV KONG_VERSION 0.10.2
 
