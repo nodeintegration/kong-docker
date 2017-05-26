@@ -1,0 +1,11 @@
+--- conf_loader.lua.orig  2017-05-26 04:45:48.971529579 +0000
++++ conf_loader.lua 2017-05-26 04:47:03.443708905 +0000
+@@ -56,6 +56,8 @@
+   proxy_listen_ssl = {typ = "string"},
+   admin_listen = {typ = "string"},
+   admin_listen_ssl = {typ = "string"},
++  admin_auth_basic = {typ = "string"},
++  admin_auth_file = {typ = "string"},
+   cluster_listen = {typ = "string"},
+   cluster_listen_rpc = {typ = "string"},
+   cluster_advertise = {typ = "string"},

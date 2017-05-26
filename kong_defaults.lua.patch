@@ -1,0 +1,11 @@
+--- templates/kong_defaults.lua.orig  2017-05-26 04:46:07.903575167 +0000
++++ templates/kong_defaults.lua 2017-05-26 04:47:39.475795667 +0000
+@@ -8,6 +8,8 @@
+ proxy_listen_ssl = 0.0.0.0:8443
+ admin_listen = 0.0.0.0:8001
+ admin_listen_ssl = 0.0.0.0:8444
++admin_auth_basic = off
++admin_auth_file = /etc/kong/kong.admin.htpasswd
+ nginx_worker_processes = auto
+ nginx_optimizations = on
+ nginx_daemon = on

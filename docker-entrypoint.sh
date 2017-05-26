@@ -10,6 +10,13 @@ mkfifo -m 666 /tmp/logpipe
 # This child process will still receive signals as per https://github.com/Yelp/dumb-init#session-behavior
 cat <> /tmp/logpipe 1>&2 &
 
+
+if [ -n "${ADMIN_AUTH_PASSWORD}" ]; then
+ echo "${ADMIN_AUTH_PASSWORD}" | openssl passwd -apr1 -stdin | sed -e 's/^/admin:/' > /etc/kong/kong.admin.htpasswd
+else
+ echo "admin" | openssl passwd -apr1 -stdin | sed -e 's/^/admin:/' > /etc/kong/kong.admin.htpasswd
+fi
+
 # Disabling nginx daemon mode
 export KONG_NGINX_DAEMON="off"
 
