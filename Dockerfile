@@ -24,17 +24,10 @@ RUN mkdir -p /usr/local/kong/logs \
     && ln -sf /tmp/logpipe /usr/local/kong/logs/error.log
 
 RUN touch /etc/kong/kong.admin.htpasswd
-COPY ./conf_loader.lua.patch /tmp/
-COPY ./kong_defaults.lua.patch /tmp/
-COPY ./nginx_kong.lua.patch /tmp/
-COPY ./nginx_kong.lua-acl.patch /tmp/
+COPY ./admin_auth.patch /tmp/
 
-RUN cd /usr/local/share/lua/5.1/kong && \
-    patch -p0 < /tmp/conf_loader.lua.patch && \
-    patch -p0 < /tmp/kong_defaults.lua.patch && \
-    patch -p0 < /tmp/nginx_kong.lua.patch && \
-    patch -p0 < /tmp/nginx_kong.lua-acl.patch
-
+RUN cd /usr/local/share/lua/5.1/ && \
+    patch -p1 < /tmp/admin_auth.patch
 
 EXPOSE 8000 8443 8001 7946
 CMD ["kong", "start"]
