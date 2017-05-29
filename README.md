@@ -15,3 +15,4 @@ Update: as i've gone to use kong in production i've also added some new features
   - By default its disabled, to enable it, set an environment variable: KONG_NGINX_ADMIN_AUTH_BASIC to something other than 'off' which is default, this becomes the sitename
   - The username is admin and the default password is admin, the password can be overwritten using the environment variable: ADMIN_AUTH_PASSWORD
 - Add patch to exclude 127.0.0.1 from the password auth for the admin api
+- Fix rework patch
