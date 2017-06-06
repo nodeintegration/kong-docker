@@ -17,6 +17,10 @@ else
  echo "admin" | openssl passwd -apr1 -stdin | sed -e 's/^/admin:/' > /etc/kong/kong.admin.htpasswd
 fi
 
+if [ -n "${NGINX_AUTH_SECTION}" ]; then
+  sed -i -e "s/#NGINX_AUTH_SECTION#/${NGINX_AUTH_SECTION}/g"  /usr/local/share/lua/5.1/kong/templates/nginx_kong.lua
+fi
+
 # Disabling nginx daemon mode
 export KONG_NGINX_DAEMON="off"
 

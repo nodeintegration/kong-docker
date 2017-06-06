@@ -1,0 +1,10 @@
+--- templates/nginx_kong.lua.orig 2017-06-06 04:18:22.646643468 +0000
++++ templates/nginx_kong.lua  2017-06-06 04:18:40.128092299 +0000
+@@ -155,6 +155,7 @@
+ > end
+ 
+     location / {
++        #NGINX_AUTH_SECTION#
+         default_type application/json;
+         content_by_lua_block {
+             ngx.header['Access-Control-Allow-Origin'] = '*'
