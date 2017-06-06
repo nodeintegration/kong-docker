@@ -24,10 +24,7 @@ RUN mkdir -p /usr/local/kong/logs \
     && ln -sf /tmp/logpipe /usr/local/kong/logs/error.log
 
 RUN touch /etc/kong/kong.admin.htpasswd
-COPY ./nginx_auth.patch /tmp/
-
-RUN cd /usr/local/share/lua/5.1/kong && \
-    patch -p0 < /tmp/nginx_auth.patch
+COPY nginx_kong.lua /usr/local/share/lua/5.1/kong/templates
 
 EXPOSE 8000 8443 8001 7946
 CMD ["kong", "start"]
