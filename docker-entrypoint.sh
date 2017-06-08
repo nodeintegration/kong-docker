@@ -21,7 +21,7 @@ if [ -z "${$NGINX_SET_REAL_IP_FROM}" ]; then
   NGINX_SET_REAL_IP_FROM="10.0.0.0/8"
 fi
 
-sed -i -e "s/#NGINX_SET_REAL_IP_FROM#/${NGINX_SET_REAL_IP_FROM}/g"  /usr/local/share/lua/5.1/kong/templates/nginx_kong.lua
+sed -i -e "s%#NGINX_SET_REAL_IP_FROM#%${NGINX_SET_REAL_IP_FROM}%g"  /usr/local/share/lua/5.1/kong/templates/nginx_kong.lua
 
 if [ -n "${NGINX_AUTH_SECTION}" ]; then
   sed -i -e "s/#NGINX_AUTH_SECTION#/${NGINX_AUTH_SECTION}/g"  /usr/local/share/lua/5.1/kong/templates/nginx_kong.lua
