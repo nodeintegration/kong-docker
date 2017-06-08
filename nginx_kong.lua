@@ -162,7 +162,6 @@ server {
 
     location / {
         #NGINX_AUTH_SECTION#
-        auth_basic_user_file /etc/kong/kong.admin.htpasswd;
         default_type application/json;
         content_by_lua_block {
             ngx.header['Access-Control-Allow-Origin'] = '*'
