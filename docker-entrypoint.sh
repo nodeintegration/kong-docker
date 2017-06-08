@@ -17,7 +17,7 @@ else
  echo "admin" | openssl passwd -apr1 -stdin | sed -e 's/^/admin:/' > /etc/kong/kong.admin.htpasswd
 fi
 
-if [ -z "${$NGINX_SET_REAL_IP_FROM}" ]; then
+if [ -z "${NGINX_SET_REAL_IP_FROM}" ]; then
   NGINX_SET_REAL_IP_FROM="10.0.0.0/8"
 fi
 
