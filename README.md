@@ -4,11 +4,9 @@ Open-source Microservice &amp; API Management layer built on top of NGINX. debia
 # This is just a simple debian version of the official dockerhub image https://hub.docker.com/_/kong/
 This also has a patch for kong to output to standard dockerlogs by using a pipefile
 
-Update: as i've gone to use kong in production i've also added some new features that kong does not do well out of the box:
-- Add basic auth to the admin api
-
 
 # Changelog
+- 0.11.0 added, removed custom patch, removed htpasswd file and auth section, now its basically the same as upstream with logs pushed to STDOUT/STDERR
 - Add patch program
 - Add htpasswd file
 - Add patch to allow basic auth to be enabled on the admin api.
